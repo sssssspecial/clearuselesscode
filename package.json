@@ -1,0 +1,50 @@
+{
+  "name": "clearcode",
+  "displayName": "Clear Code",
+  "description": "Find and remove all unused functions or variables in C++ code.",
+  "version": "0.0.1",
+  "publisher": "sssssspecial",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://google.com/"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:cpp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clearcode.removeUnusedCode",
+        "title": "Remove unused functions/variables"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "clearcode.removeUnusedCode",
+          "when": "editorLangId == cpp",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "vscode": "^1.70.0",
+    "@types/node": "^14.0.0",
+    "@types/vscode": "^1.70.0"
+  }
+}
